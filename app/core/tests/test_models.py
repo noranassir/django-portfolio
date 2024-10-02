@@ -1,6 +1,10 @@
 from django.test import TestCase
 from django.contrib.auth import get_user_model
 
+from decimal import Decimal
+
+from core import models
+
 
 class ModelTest(TestCase):
 
