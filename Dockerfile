@@ -3,6 +3,9 @@ LABEL maintainer="noranassir"
 
 ENV PYTHONUNBUFFERED 1
 
+RUN mkdir -p /app/media/projects && \
+    chown -R django-user:django-user /app/media
+
 COPY ./requirements.txt /tmp/requirements.txt
 COPY ./requirements.dev.txt /tmp/requirements.dev.txt
 COPY ./app /app
@@ -26,7 +29,6 @@ RUN python -m venv /py && \
         --no-create-home \
         django-user
 
-RUN mkdir -p /app/media/projects && chown -R django-user:django-user /app/media
 ENV PATH="/py/bin:$PATH"
 
 USER django-user
