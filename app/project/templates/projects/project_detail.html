@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>{{ project.title }}</h1>
+<img src="{{ project.image.url }}" class="img-fluid" alt="{{ project.title }}">
+<p>{{ project.description }}</p>
+<a href="{{ project.link }}" class="btn btn-success">Visit Project</a>
+{% endblock %}

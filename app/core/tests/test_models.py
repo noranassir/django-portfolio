@@ -1,8 +1,6 @@
 from django.test import TestCase
 from django.contrib.auth import get_user_model
 
-from decimal import Decimal
-
 from core import models
 
 
@@ -41,3 +39,12 @@ class ModelTest(TestCase):
 
         self.assertTrue(user.is_superuser)
         self.assertTrue(user.is_staff)
+
+    def test_create_project(self):
+        project = models.Project.objects.create(
+            title='Test project name',
+            description='Test project description',
+            source_link='https://github.com/example/repo',
+        )
+        self.assertEqual(str(project), project.title)
+

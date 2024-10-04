@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container mt-5">
+    <h1>About Me</h1>
+    <hr>
+    <div class="row">
+        <div class="col-md-4">
+            <img src="{% static 'images/profile.jpeg' %}" class="img-fluid rounded-circle" alt="Profile Image">
+        </div>
+        <div class="col-md-8">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+
+            <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+
+            <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+        </div>
+    </div>
+    <div class="row mt-4">
+        <div class="col-md-6">
+            <h2>Skills</h2>
+            <ul>
+                <li>Python & Django</li>
+                <li>Java & Spring</li>
+                <li>PostgreSQL & Docker</li>
+                <li>Git & GitHub Actions</li>
+            </ul>
+        </div>
+        <div class="col-md-6">
+            <h2>Experience</h2>
+            <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        </div>
+    </div>
+</div>
+{% endblock %}

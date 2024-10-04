@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="jumbotron text-center">
+    <div id="particles-js"></div>
+    <div class="jumbotron-content">
+        <h1 class="display-4">Nora Nassir</h1>
+        <p class="lead">Explore my projects, learn more about me, and feel free to get in touch.</p>
+        <hr class="my-4">
+        <p>Check out my latest work.</p>
+        <a class="btn btn-primary btn-lg" href="{% url 'project:project_index' %}" role="button">View Projects</a>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <h2>Projects</h2>
+        <p>Take a look at my portfolio of work, including both personal and professional projects.</p>
+        <a class="btn btn-secondary" href="{% url 'project:project_index' %}" role="button">Explore Projects</a>
+    </div>
+    <div class="col-md-4">
+        <h2>About Me</h2>
+        <p>Learn more about my background, skills, and what drives me in my career.</p>
+        <a class="btn btn-secondary" href="{% url 'page:about' %}" role="button">Read More</a>
+    </div>
+    <div class="col-md-4">
+        <h2>Contact</h2>
+        <p>Feel free to reach out for collaborations, inquiries, or just to say hi!</p>
+        <a class="btn btn-secondary" href="{% url 'page:contact' %}" role="button">Get in Touch</a>
+    </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
+<script src="{% static 'js/particles.js' %}"></script>
+{% endblock %}

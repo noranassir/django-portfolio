@@ -1,0 +1,153 @@
+body {
+    background-color: #ffffff;
+    color: #000000;
+    font-family: 'Helvetica Neue', sans-serif;
+}
+
+.navbar {
+    display: flex;
+    justify-content: center;
+    padding: 1rem 0;
+}
+
+.navbar-nav {
+    justify-content: center;
+}
+
+.navbar-collapse {
+    flex-grow: 1;
+}
+
+.nav-link {
+    margin: 0 10px;
+}
+
+.navbar-nav .nav-link:hover {
+    background-color: #f8f9fa;
+    border-radius: 5px;
+}
+
+.navbar-brand {
+    font-family: 'Bungee Spice', sans-serif;
+    font-size: 2rem;
+    padding: 0px 0px 0px 5px;
+    margin: 0 20px;
+}
+
+.mirrored {
+    display:inline-block;
+    transform: scaleX(-1);
+}
+
+.navbar-brand:hover {
+    transform: scale(1.2);
+}
+
+.jumbotron {
+    position: relative;
+    z-index: 1;
+    background: rgba(255, 255, 255, 0.8);
+    padding: 6rem 2rem;
+    min-height: 400px;
+}
+
+.jumbotron-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 50px 15px;
+}
+
+.jumbotron-content h1 {
+    font-family: 'Arial Rounded MT Bold', sans-serif;
+    font-size: 5rem;
+    font-weight: bold;
+    color: #ffffff;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 20px;
+    padding: 5px;
+    display: inline-block;
+    box-shadow: none;
+}
+
+.particles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+.jumbotron-content {
+    position: relative;
+    z-index: 1;
+    padding: 50px 15px;
+}
+
+.btn-primary {
+    background-color: #FF8225;
+    border: none;
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #B43F3F;
+}
+
+.btn-secondary {
+    background-color: #173B45;
+    border: none;
+    transition: background-color 0.3s ease;
+}
+
+.btn-secondary:hover {
+    background-color: #B43F3F;
+}
+
+footer {
+    background-color: #ffffff;
+    padding: 20px 0;
+    position: relative;
+    text-align: center;
+}
+
+footer p {
+    margin: 0;
+    color: #000000;
+}
+
+@keyframes particleAnimation {
+    0% {
+        transform: translate(0);
+    }
+    100% {
+        transform: translate(100%, 100%);
+    }
+}
+
+.particle {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.8);
+    animation: particleAnimation 5s linear infinite;
+}
+
+.card {
+    border: 1px solid #f0f0f0;
+    border-radius: 10px;
+    transition: transform 0.2s;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+#particles-js {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}

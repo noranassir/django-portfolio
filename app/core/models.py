@@ -1,6 +1,7 @@
 """
 Models for database
 """
+from django.conf import settings
 from django.db import models
 from django.contrib.auth.models import (
     AbstractBaseUser,
@@ -39,3 +40,13 @@ class User(AbstractBaseUser, PermissionsMixin):
     objects = UserManager()
 
     USERNAME_FIELD = 'email'
+
+
+class Project(models.Model):
+    title = models.CharField(max_length=255)
+    description = models.TextField()
+    image = models.ImageField(upload_to='projects/')
+    source_link = models.CharField(max_length=200)
+
+    def __str__(self):
+        return self.title
