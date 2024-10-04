@@ -11,7 +11,7 @@ services:
       args:
         DEV: "false"
     environment:
-      DB_HOST: ${DB_HOST}
+      DB_HOST: your-database-host
       DB_NAME: ${DB_NAME}
       DB_USER: ${DB_USER}
       DB_PASS: ${DB_PASS}
@@ -23,14 +23,3 @@ services:
       - path: /
         type: http
         port: 8000
-
-  - type: database
-    name: postgres-database
-    database: postgres
-    env: postgres
-    plan: starter
-    properties:
-      db_name: ${DB_NAME}
-      db_user: ${DB_USER}
-      db_password: ${DB_PASS}
-      db_version: 13
