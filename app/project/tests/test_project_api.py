@@ -9,21 +9,11 @@ from core.models import Project
 
 from project.serializers import ProjectSerializer
 
-def create_project(**params):
-    defaults = {
-        'title': "Test project title",
-        'description': 'Test description',
-        'source_link': 'www.example.com',
-    }
-
-    defaults.update(params)
-    project = Project.objects.create(**defaults)
-    return project
 
 class ProjectAPITest(TestCase):
 
     def setUp(self):
-
+        self.client = APIClient()
         self.image = SimpleUploadedFile(
             name='test_image.jpg',
             content=b'',
@@ -36,11 +26,15 @@ class ProjectAPITest(TestCase):
             image=self.image
         )
 
-    def test_project_creation(self):
-        self.assertEqual(self.project.title, 'Test Project')
-        self.assertEqual(self.project.description, 'This is a test description')
-        self.assertEqual(self.project.source_link, 'http://example.com')
-        self.assertTrue(self.project.image.name.endswith('test_image.jpg'))
+    def test_list_projects(self):
+        url = reverse('project-list')
+        response = self.client.get(url)
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertEqual(len(response.data), 1)
+        self.assertEqual(response.data[0]['title'], 'Test Project')
 
-    def test_project_string_representation(self):
-        self.assertEqual(str(self.project), 'Test Project')
+    def test_project_image_field(self):
+        url = reverse('project-detail', args=[self.project.id])
+        response = self.client.get(url)
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertTrue(response.data['image'].endswith('test_image.jpg'))

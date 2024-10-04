@@ -1,5 +1,6 @@
 from django.test import TestCase
 from django.contrib.auth import get_user_model
+from django.core.files.uploadedfile import SimpleUploadedFile
 
 from core import models
 
@@ -41,10 +42,16 @@ class ModelTest(TestCase):
         self.assertTrue(user.is_staff)
 
     def test_create_project(self):
+        image = SimpleUploadedFile(
+            name='test_image.jpg',
+            content=b'',
+            content_type='image/jpeg'
+        )
         project = models.Project.objects.create(
             title='Test project name',
             description='Test project description',
             source_link='https://github.com/example/repo',
+            image=image
         )
         self.assertEqual(str(project), project.title)
 
