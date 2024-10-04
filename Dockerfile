@@ -25,7 +25,8 @@ RUN python -m venv /py && \
         --disabled-password \
         --no-create-home \
         django-user
-        
+
+RUN mkdir -p /app/media/projects && chown -R django-user:django-user /app/media
 ENV PATH="/py/bin:$PATH"
 
 USER django-user
