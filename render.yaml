@@ -1,0 +1,38 @@
+version: 1
+
+services:
+  app:
+    type: web
+    name: django-portfoliosite
+    env: python
+    build:
+      docker:
+        dockerfile: Dockerfile
+        context: .
+      args:
+        DEV: "false"
+    environment:
+      DB_HOST: ${DB_HOST}
+      DB_NAME: ${DB_NAME}
+      DB_USER: ${DB_USER}
+      DB_PASS: ${DB_PASS}
+      SECRET_KEY: ${SECRET_KEY}
+      DATABASE_URL: ${DATABASE_URL}
+      DEBUG: ${DEBUG}
+    plan: starter
+    routes:
+      - path: /
+        type: http
+        port: 8000
+
+  db:
+    type: database
+    name: postgres-database
+    database: postgres
+    env: postgres
+    plan: starter
+    properties:
+      db_name: ${DB_NAME}
+      db_user: ${DB_USER}
+      db_password: ${DB_PASS}
+      db_version: 13
