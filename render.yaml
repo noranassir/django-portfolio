@@ -1,8 +1,7 @@
 version: 1
 
 services:
-  app:
-    type: web
+  - type: web
     name: django-portfoliosite
     env: python
     build:
@@ -25,8 +24,7 @@ services:
         type: http
         port: 8000
 
-  db:
-    type: database
+  - type: database
     name: postgres-database
     database: postgres
     env: postgres
