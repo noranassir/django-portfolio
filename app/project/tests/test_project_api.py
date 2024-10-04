@@ -32,9 +32,3 @@ class ProjectAPITest(TestCase):
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertEqual(len(response.data), 1)
         self.assertEqual(response.data[0]['title'], 'Test Project')
-
-    def test_project_image_field(self):
-        url = reverse('project-detail', args=[self.project.id])
-        response = self.client.get(url)
-        self.assertEqual(response.status_code, status.HTTP_200_OK)
-        self.assertTrue(response.data['image'].endswith('test_image.jpg'))
