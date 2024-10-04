@@ -5,7 +5,7 @@ services:
     build:
       context: .
       args:
-        - DEV=true
+        - DEV=false
     ports:
       - "8000:8000"
     volumes:
@@ -20,6 +20,7 @@ services:
       - DB_USER=${DB_USER}
       - DB_PASS=${DB_PASS}
       - SECRET_KEY=${SECRET_KEY}
+      - DATABASE_URL=${DATABASE_URL}
       - DEBUG=${DEBUG}
     depends_on:
       - db
